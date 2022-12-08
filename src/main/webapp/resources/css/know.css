@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+:root {
+  --text-color: rgb(152, 187, 201);
+  --accent-color:rgb(152, 187, 201);
+  --icons-color: rgb(152, 187, 201);
+
+}
+
+a { text-decoration:none; color: var(--text-color); }
+a:visited{ color: var(--text-color);}
+a:active{ color: pink; }
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #F5F5F5;    
+
+	padding:0px; 
+	margin:0px; 
+
+}
+
+input{
+size:20; 
+width:70%;
+
+height:30px;
+margin: 90px 50px 0px 250px;
+
+border:none;
+text-align:center;
+background:transparent;
+
+}
+
+input:focus { outline: none; }
+
+.toDos{
+
+	margin: 50px 0px 0px 700px;
+}
+
+ul{
+	list-style:none;
+}
+li{
+height:30px;
+}
+button{
+	margin: 7px 0px 0px 20px;
+}
