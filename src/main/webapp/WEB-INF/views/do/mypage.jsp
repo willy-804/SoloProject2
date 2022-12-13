@@ -5,21 +5,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내정보</title>
-<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-<script type="text/javascript"
-	src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript"
-	src="../../../resources/JS/effective.js?version=1.2"></script>
-<script type="text/javascript"
-	src="../../../resources/JS/mypagesignup.js?version=1.2"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MYPAGE</title>
+
+
+
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript" src="../../../resources/js/effective.js?version=1.2"></script>
+
+<script type="text/javascript" src="../../../resources/js/mypagesignup.js?version=1.2"></script>
+
 <script type="text/javascript" src="../../../resources/js/Sing Up.js"></script>
-<link rel="stylesheet"
-	href="../../../resources/css/mypage.css?version=1.0" type="text/css">
+
+<link rel="stylesheet" href="../../../resources/css/mypage.css?version=1.0" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/c92986acdf.js" crossorigin="anonymous"></script>
+        
+    <script src="https://kit.fontawesome.com/e94ca5c1e6.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
-	<div id="container">
+
+<%@ include file="../header/header.jsp"%>
 	
+	<div id="container">
+		
 		<form action="/mypage/mypage" method="post"
 			onsubmit="return jsSubmit();">
 
@@ -28,7 +43,7 @@
 			<ul id="mypagenav">
 				<li><a>내정보</a></li>
 				<li><a href="/memModify">내글</a></li>
-				<li><a href="/mypage/favorite">회원탈퇴</a></li>
+				<li><a href="/do/favorite">회원탈퇴</a></li>
 			</ul>
 			<table>
 				<tr>
@@ -85,17 +100,12 @@
 					<td><input type="text" name="phone" value="${member.phone}"
 						class="box"></td>
 				</tr>
-				<tr>
-					<td><span>*</span></td>
-					<td>주소</td>
-					<td><input type="text" name="addr" value="${member.addr}"
-						class="box"></td>
-				</tr>
+				
 			</table>
 
 			<div class="btn">
 				<input type="submit" value="수정" class="backbtn">
-				 <a href="../main/main"><input type="button" value="취소" class="backbtn"></a>
+				 <a href="../home"><input type="button" value="취소" class="backbtn"></a>
 			</div>
 		</form>
 	</div>

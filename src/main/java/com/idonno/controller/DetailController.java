@@ -44,7 +44,7 @@ public class DetailController {
 	   @RequestMapping(value = "/detail/remove", method = RequestMethod.GET)
 	   public String remove(BoardVO board) {
 	      ds.remove(board);
-	      return "redirect:/list/list";
+	      return "redirect:/to/board";
 	   }
 	   
 	   // 해당게시물의 첨부파일의 데이터를 ajax로 전송

@@ -1,5 +1,31 @@
 @charset "UTF-8";
 
+:root {
+  --text-color: rgb(152, 187, 201);
+  --accent-color:rgb(152, 187, 201);
+  --icons-color: rgb(152, 187, 201);
+
+}
+
+a { text-decoration:none; color: var(--text-color); }
+a:visited{ color: var(--text-color);}
+a:active{ color:  #edacb1; }
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #F5F5F5;    
+
+	padding:0px; 
+	margin:0px; 
+
+}
+
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -9,7 +35,39 @@
 	width: 1000px;
 	margin: 0 auto;
 	position: relative;
-	top: 90px;
+	top: 30px;
+}
+
+
+.writebtn  {
+  margin: 20px;
+  outline: none;
+}
+
+.writebtn  {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid gray;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* 1 */
+.writebtn  {
+  transition: all 0.3s ease;
+}
+.writebtn :hover {
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
 }
 
 #categorylist {
@@ -207,7 +265,7 @@ td {
 }
 
 #searchAll {
-	border: 1px solid #2BC0E4;
+	border: 1px solid #c4c4c4;
 	height: 44px;
 	width: 660px;
 	margin: auto;
@@ -229,7 +287,7 @@ td {
 
 #searchbtn {
 	color: white;
-	background-color: #2BC0E4;
+	background-color: rgb(152, 187, 201);
 	padding: 10px;
 	float: right;
 	width: 60px;

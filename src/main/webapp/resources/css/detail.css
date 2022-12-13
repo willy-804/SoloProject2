@@ -1,5 +1,27 @@
 @charset "UTF-8";
 
+:root {
+  --text-color: rgb(152, 187, 201);
+  --accent-color:rgb(152, 187, 201);
+  --icons-color: rgb(152, 187, 201);
+
+}
+
+a { text-decoration:none; color: var(--text-color); }
+a:visited{ color: var(--text-color);}
+a:active{ color: pink; }
+
+
+body {
+   
+    justify-content: center;
+    background-color: #F5F5F5;    
+
+	padding:0px; 
+	margin:0px; 
+
+}
+
 * {
 	margin: 0px;
 	padding: 0px;

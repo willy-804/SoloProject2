@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>내글</title>
-<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+
 <script type="text/javascript"
 	src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../resources/js/mypagelist.js"></script>
@@ -15,14 +15,16 @@
 	type="text/css">
 </head>
 <body>
+<%@ include file="../header/header.jsp"%>
+
 	<div id="container">
 	
 		<h1 class="title">내 글 페이지</h1>
 		<div class="nav">
 			<ul id="mypagenav">
-				<li><a href="/mypage/mypage">내정보</a></li>
+				<li><a href="/do/mypage">내정보</a></li>
 				<li><a>내글</a></li>
-				<li><a href="/mypage/favorite">회원탈퇴</a></li>
+				<li><a href="/do/favorite">회원탈퇴</a></li>
 			</ul>
 			<form id="searchForm" action="/memModify" method="get">
 				<span>
@@ -66,7 +68,7 @@
 				<tr>
 					<td class="bno">${myboard.bno}</td>
 					<td class="title_1"><a
-						href="../detail/detail?bno=${myboard.bno}">${myboard.title}</a></td>
+						href="../to/board_detail?bno=${myboard.bno}">${myboard.title}</a></td>
 					<td class="nick">${myboard.category}</td>
 					<td class="regdate">${myboard.regdate}</td>
 					<td class="cnthno">${myboard.cnthno}</td>

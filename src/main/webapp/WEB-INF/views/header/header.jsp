@@ -30,7 +30,7 @@
         <li><a href="/know" data-hover="KNOW"><span>KNOW</span></a></li> <!-- 오늘 해야할 일 -->
         <li><a href="/what" data-hover="WHAT"><span>WHAT</span></a></li> <!-- 마인드맵 -->
         <li><a href="/to/board" data-hover="TO"><span>TO</span></a></li> <!-- 게시판  -->    
-      
+            <!-- /to/board?category=게시판" -->
    
      <% 
       String id = (String) session.getAttribute("id");

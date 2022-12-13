@@ -1,5 +1,31 @@
 @charset "UTF-8";
 
+
+:root {
+  --text-color: rgb(152, 187, 201);
+  --accent-color:rgb(152, 187, 201);
+  --icons-color: rgb(152, 187, 201);
+
+}
+
+a { text-decoration:none; color: var(--text-color); }
+a:visited{ color: var(--text-color);}
+a:active{ color: pink; }
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #F5F5F5;    
+
+	padding:0px; 
+	margin:0px; 
+
+}
+
 #container {
 	width: 100%;
 	height: 110vh;
@@ -8,12 +34,11 @@
 	position: relative;
 	text-align: center;
 	top: 89px;
-	background: linear-gradient(to right, #2BC0E4, #EAECC6);
 
 }
 
 #logincss {
-	color: black;
+	color: rgb(152, 187, 201);
 }
 
 .loginsession {
@@ -60,7 +85,7 @@ background-color: #0000;
 .loginbutton {
 	background-color: white;
 	padding: 20px;
-	color: #2BC0E4;
+	color: rgb(152, 187, 201);
 	border: 1px solid #2BC0E4;
 	width: 450px;
 	font-size: 18px;
@@ -70,7 +95,7 @@ background-color: #0000;
 }
 
 .loginbutton:hover {
-	background: #2BC0E4;
+	background: #b0c4de;
 	color: white;
 }
 

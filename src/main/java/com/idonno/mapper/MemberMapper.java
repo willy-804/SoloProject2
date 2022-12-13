@@ -13,11 +13,10 @@ public interface MemberMapper {
 		// 아이디 찾기
 		public String idsearch(MemberVO member);
 		
-		/* 비밀번호 찾기
+		//비밀번호 찾기
 		public String pwsearch(MemberVO member);
 		
 		// 메일 관련
-		public void findPw(MemberVO member);
-		public int findPwCheck(MemberVO member); 
-       */
+		//public void findPw(MemberVO member);
+		//public int findPwCheck(MemberVO member); 
 }

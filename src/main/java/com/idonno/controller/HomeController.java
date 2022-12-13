@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
+	 
 	@Autowired
 	MemberService ms;
 	
@@ -168,7 +168,33 @@ public class HomeController {
 			return "header/idsearch";
 		}
 	}
-		
+	
+	@RequestMapping(value = "/header/pwsearch", method = RequestMethod.POST)
+	public String pwsearch(MemberVO member,HttpServletResponse response) throws Exception {
+
+    // JavaScript로 비밀번호 확인 - 비밀번호는 그대로 앞부분만 표시
+	String pw = ms.pwsearch(member);
+	response.setContentType("text/html; charset=UTF-8");
+	PrintWriter out = response.getWriter();
+	if(pw!=null) {
+		int a = pw.length()/2;
+		String b = "";
+		String serpw;
+		for(int i=0;i<a;i++) {b+="*";}
+		if(pw.length()%2==0) {
+			serpw = pw.substring(0,a) + b;
+		}else {
+			serpw = pw.substring(0,a) + b + "*";		}
+  	out.println("<script>alert('비밀번호:"+serpw+"'); </script>");
+		out.flush();
+		return "header/login";
+	}else {
+		out.println("<script>alert('비밀번호를 찾을 수 없습니다.'); </script>");
+		out.flush();
+		return "header/idsearch";
+	}
+	}
+	
 	// home.jsp와 같은 위치에 있는 today.jsp를 실행할 때
 	@RequestMapping(value = "/today", method = RequestMethod.GET)
 	public void today(HttpServletRequest request, Model model) {
@@ -229,18 +255,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/to/board", method = RequestMethod.GET)
-	public void to(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		System.out.println(id);
-    }
-    
-    public String list(Model model, CriteriaVO cri) {
+	public String list(Model model, CriteriaVO cri) {// 리퀘스트맵핑 아래에 2개이상의 public ㅔㅁ서드가 못들어간다 메서드 선언이 2개가 안댐 다른거쓰려면 단데 이슨ㄴ걸 호춣해서 쓰는거고
 
 		System.out.println(cri);
-		// board.jsp 실행 할 때 매니저글 select 된 결과를 가져가라.
+		// list.jsp 실행 할 때 매니저글 select 된 결과를 가져가라.
 		model.addAttribute("manager",ls.manager());
-		// board.jsp 실행 할 때 select 된 결과를 가져가라.
+		// list.jsp 실행 할 때 select 된 결과를 가져가라.
 		model.addAttribute("list", ls.list(cri));
 		// list 폴더 안에 있는 list.jsp 실행 할 때 pageVO에 저장되어 있는 데이터를 가져와라.
 		//							생성자 호출(매개변수가 없는 생성자)
@@ -254,20 +274,20 @@ public class HomeController {
 		model.addAttribute("keyword", keyword);
 		System.out.println(cri.getCategory());
 		System.out.println(cri.getKeyword());
-		return "to/board";
+		return "to/board";		
 		
-    } 
-		
-    // 로그인한 사용자면 
+    }
+
+    // 로그인한 사용자면  마이페이지 컨트롤러로 옮김 
 	
-	// 비회원이면 
+	// 비회원이면 근데 나 회원가입 화면으로 가는걸로 바꾸고 싶은데 
 	@RequestMapping(value = "/secret", method = RequestMethod.GET)
 	public void write(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		System.out.println(id);
+			
 	}
 	
-	// 로그인한 사용자 중 아이디가 매니저면 
+	// 로그인한 사용자 중 아이디가 매니저면 매니저페이지 컨트롤러로 옮김
 	
 }

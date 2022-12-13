@@ -21,6 +21,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/c92986acdf.js" crossorigin="anonymous"></script>
+        
+    <script src="https://kit.fontawesome.com/e94ca5c1e6.js" crossorigin="anonymous"></script>
+
 <title>나의 만다라트</title>
 
 </head>

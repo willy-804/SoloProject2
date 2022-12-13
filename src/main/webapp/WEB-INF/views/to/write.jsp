@@ -6,6 +6,10 @@
 <meta charset="UTF-8"> 
 <title>글쓰기</title>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link rel="stylesheet" href="../../../resources/css/write.css?version=1.5" type="text/css">
@@ -16,13 +20,15 @@
 
 </head> 
 <body>
+
+<%@ include file="../header/header.jsp"%>
+		
 	<div id="container">
 		
-		<%@ include file="../header/header.jsp"%>
-		
+
 		<form action="/to/write" id="form" method="post">
 			<div id="top">
-				<h1 id="writecss">글 쓰기</h1>
+		
 			</div>  
 			<div id="mid"> 
 				<table>
@@ -32,9 +38,15 @@
 								<select name="category">
 									<option value="게시판">게시판</option>
 						
-								
+								<!--  아이디가 매니저인 경우 보이게끔  -->
+								 <%
+
+      if(id.equals("manager")){    
+      %> 
 									<option value="공지">공지</option>
-						
+						   <%
+     }
+     %>
 						
 						
 								</select>

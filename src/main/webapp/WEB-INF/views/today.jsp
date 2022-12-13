@@ -5,9 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TODAY</title>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
     
@@ -19,13 +21,11 @@
         
     <script src="https://kit.fontawesome.com/e94ca5c1e6.js" crossorigin="anonymous"></script>
 
-
-<title>TODAY</title>
-
 </head>
 <body>
 
 <%@ include file="../views/header/header.jsp" %>
+
 <div class="cal">
  <section class="main">
         <h1 class="main-title">Calendar</h1>

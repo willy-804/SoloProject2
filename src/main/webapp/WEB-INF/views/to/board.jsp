@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DO</title>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -16,12 +19,19 @@
 
 <script type="text/javascript" src="../../../resources/js/uploadAjax.js"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/c92986acdf.js" crossorigin="anonymous"></script>
+        
+    <script src="https://kit.fontawesome.com/e94ca5c1e6.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
+<%@ include file="../header/header.jsp"%>
+
 <div id="content">
 
-<%@ include file="../header/header.jsp"%>
 	
 	  <%
       if(id==null){
@@ -30,11 +40,11 @@
       <%
       }else if(id.equals("manager")){   
       %>  <!--  id가 manager로 로그인 했으면 -->
-          <a href="../to/write"><button type="button">글쓰기</button></a>   
+          <a href="../to/write"><button type="button" class="writebtn">글쓰기</button></a>   
      <%
       }else{  
      %>  <!-- 로그인 했으면 -->
-         <a href="../to/write"><button type="button">글쓰기</button></a>   
+         <a href="../to/write"><button type="button" class="writebtn" >글쓰기</button></a>   
      <%
      }
      %>
@@ -50,7 +60,7 @@
          </c:choose>
          
          <div id="search">
-            <form action="/list/list" method="get" id="searchform">
+            <form action="/to/board" method="get" id="searchform">
                <div id="searchAll">             
                   <select class="search" name="period">
                      <option value="total">전체기간</option>
@@ -79,18 +89,18 @@
          <div class="align">
             <div class="sort">
                <ul>
-                  <li><a href="/list/list_icon3?category=${paging.cri.category}&pageNum=1&amount=20&orderby=최신순"><img src="/resources/image/align_icon3.png" class="sortimg"></a></li>
-                  <li><a href="/list/list_icon2?category=${paging.cri.category}&pageNum=1&amount=10&orderby=최신순"><img src="/resources/image/align_icon2.png" class="sortimg"></a></li>
-                  <li><a href="/list/list?category=${paging.cri.category}&pageNum=1&amount=10"><img src="/resources/image/align_icon1.png" class="sortimg_1"></a></li>
+                  <li><a href="/to/list_icon3?category=${paging.cri.category}&pageNum=1&amount=20&orderby=최신순"><img src="/resources/image/align_icon3.png" class="sortimg"></a></li>
+                  <li><a href="/to/list_icon2?category=${paging.cri.category}&pageNum=1&amount=10&orderby=최신순"><img src="/resources/image/align_icon2.png" class="sortimg"></a></li>
+                  <li><a href="/to/board?category=${paging.cri.category}&pageNum=1&amount=10"><img src="/resources/image/align_icon1.png" class="sortimg_1"></a></li>
                </ul>
             </div>
             <div class="sortby">
-               <a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=10" id="pageNum" class="listcount">${paging.cri.amount}개씩</a>
+               <a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=10" id="pageNum" class="listcount">${paging.cri.amount}개씩</a>
                <ul>
-                  <li><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=5" id="pageNum" class="listnum">5개씩</a></li>
-                  <li><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=10" id="pageNum" class="listnum">10개씩</a></li>
-                  <li><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=15" id="pageNum" class="listnum">15개씩</a></li>
-                  <li><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=20" id="pageNum" class="listnum">20개씩</a></li>
+                  <li><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=5" id="pageNum" class="listnum">5개씩</a></li>
+                  <li><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=10" id="pageNum" class="listnum">10개씩</a></li>
+                  <li><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=15" id="pageNum" class="listnum">15개씩</a></li>
+                  <li><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=20" id="pageNum" class="listnum">20개씩</a></li>
                </ul>
             </div>
          </div>
@@ -100,16 +110,16 @@
                <td class="bno"><span>게시판</span></td>
                <td class="title"><span>제목</span></td>
                <td class="nick"><span>글쓴이</span></td>
-               <td class="regdate"><span><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=최신순" class="orderBy"  id="byReg">작성일▽</a></span></td>
-               <td class="cnt"><span><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=추천순" class="orderBy" id="byCntHno">추천▽</a></span></td>
-               <td class="good"><span><a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=조회순" class="orderBy" id="byCnt">조회▽</a></span></td>
+               <td class="regdate"><span><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=최신순" class="orderBy"  id="byReg">작성일▽</a></span></td>
+               <td class="cnt"><span><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=추천순" class="orderBy" id="byCntHno">추천▽</a></span></td>
+               <td class="good"><span><a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=${paging.cri.amount}&orderby=조회순" class="orderBy" id="byCnt">조회▽</a></span></td>
             </tr>
             <c:if test="${paging.cri.pageNum == 1 and (keyword == null or keyword == '')}">
                <!-- 매니저글 for문 시작 -->
                <c:forEach items="${manager}" var="managerlist">
                   <tr id="notice">
                      <td class="bno">공지</td>
-                     <td class="title"><a href="../detail/detail?bno=${managerlist.bno}">${managerlist.title}</a></td>
+                     <td class="title"><a href="../to/board_detail?bno=${managerlist.bno}">${managerlist.title}</a></td>
                      <td class="nick">${managerlist.nick}</td>
                      <td class="regdate">${managerlist.regdate}</td>
                      <td class="cnt">${managerlist.good}</td>
@@ -121,14 +131,12 @@
             <!-- 게시글 목록 for문 시작 -->
             <c:forEach items="${list }" var="boardlist">
                <tr id="listTr">
-                  <td class="bno"><a href="/list/list?category=${boardlist.category}">${boardlist.category}</a></td>
-                  <td class="title"><a href="../detail/detail?bno=${boardlist.bno}">${boardlist.title}</a><span id="cntrno">[${boardlist.cntrno}]</span></td>
+                  <td class="bno"><a href="/to/board?category=${boardlist.category}">${boardlist.category}</a></td>
+                  <td class="title"><a href="../to/board_detail?bno=${boardlist.bno}">${boardlist.title}</a><span id="cntrno">[${boardlist.cntrno}]</span></td>
                   <td class="nick">${boardlist.nick}
                      <ul class="idul">
-                        <li><a href="/list/list?period=total&type=N&keyword=${boardlist.nick}&pageNum=1&amount=10">게시글 보기</a></li>
-                        <c:if test="${id!=null and boardlist.id!=id}">
-                           <li><a href="/message/send?recv_id=${boardlist.id}&recv_nick=${boardlist.nick}" onclick="window.open(this.href, '_blank', 'width=600, height=340');return false;">쪽지 보내기</a></li>
-                        </c:if>
+                        <li><a href="/to/board?period=total&type=N&keyword=${boardlist.nick}&pageNum=1&amount=10">게시글 보기</a></li>
+                     
                      </ul>
                   </td>
                   <td class="regdate">${boardlist.regdate}</td>
@@ -148,12 +156,12 @@
          <div id="pagingArea">
             <!-- prev(이전)이 true이면 이전버튼 활성화 -->
             <c:if test="${paging.prev}">
-               <a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.startPage-1}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" class="pageBtn">이전</a>
+               <a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.startPage-1}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" class="pageBtn">이전</a>
             </c:if>
       
             <!-- begin(1)이 end(10) 될 동안 반복(1이 10 될 동안 반복) -->
             <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
-               <a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${num}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" id="pageNum"
+               <a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${num}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" id="pageNum"
               	 <c:if test="${paging.cri.pageNum==num}">
                		style="font-weight:bold; color:red;"
                	 </c:if>
@@ -162,7 +170,7 @@
             
             <!-- next(다음)이 true이면 다음버튼 활성화 -->
             <c:if test="${paging.next}">
-               <a href="/list/list?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" class="pageBtn">다음</a>
+               <a href="/to/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}&orderby=${paging.cri.orderby}" class="pageBtn">다음</a>
             </c:if>
          </div>
       </div>

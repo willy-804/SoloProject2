@@ -10,21 +10,23 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../../../resources/JS/detail.js"></script>
+<script type="text/javascript" src="../../../resources/js/detail.js"></script>
 <script type="text/javascript"
-	src="../../../resources/JS/reple.js?version=1.1"></script>
+	src="../../../resources/js/reple.js?version=1.1"></script>
 <!--  <script type="text/javascript" src="/resources/JS/attach.js"></script> -->  
 <!--  <script type="text/javascript" src="../../../resources/JS/uploadAjax.js"></script> -->
 
 <script type="text/javascript"
-	src="../../../resources/JS/writeAttach.js"></script>
+	src="../../../resources/js/writeAttach.js"></script>
 <link rel="stylesheet"
-	href="../../../resources/CSS/detail.css?version=1.7">
+	href="../../../resources/css/detail.css?version=1.7">
 
-<script type="text/javascript" src="../../../resources/JS/like.js?version=1.0"></script>
+<script type="text/javascript" src="../../../resources/js/like.js?version=1.0"></script>
 
 </head>
 <body>
+
+<%@ include file="../header/header.jsp"%>
 
    <div id="content">
       <form id="form">

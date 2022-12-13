@@ -13,6 +13,8 @@
 	type="text/css">
 </head>
 <body>
+<%@ include file="../header/header.jsp"%>
+
 	<div id="container">
 		
 		<form action="/mypage/favorite" method="post">
@@ -20,8 +22,8 @@
 			<h1 class="title">회원탈퇴 페이지</h1>
 
 			<ul id="mypagenav">
-				<li><a href="/mypage/mypage">내정보</a></li>
-				<li><a href="/memModify">내글</a></li>
+				<li><a href="/mypage">내정보</a></li>
+				<li><a href="/do/memModify">내글</a></li>
 				<li><a>회원탈퇴</a></li>
 			</ul>
 			<table class="pw_table">
